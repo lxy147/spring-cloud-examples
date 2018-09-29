@@ -1,0 +1,28 @@
+server:
+  port: 8001
+spring:
+  application:
+    name: spring-cloud-config-server
+  cloud:
+    config:
+      server:
+        git:
+          uri: https://github.com/lxy147/config-repo                            # git仓库地址下的相对地址，可以配置多个，用,分割。
+          username:                                               # git仓库的账号
+          password:                                             # git仓库的密码
+          search-paths: config
+    consul:
+      host: localhost
+      port: 8500
+      discovery:
+        healthCheckPath: /healths
+        healthCheckInterval: 15s
+        instance-id: ${spring.application.name}:${vcap.application.instance_id:${spring.application.instance_id:${random.value}}}
+  rabbitmq:
+    host: 192.168.99.100
+    port: 32769
+    username: guest
+    password: guest
+management:
+  security:
+    enabled: false
