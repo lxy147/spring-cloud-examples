@@ -20,7 +20,7 @@ spring:
         instance-id: ${spring.application.name}:${vcap.application.instance_id:${spring.application.instance_id:${random.value}}}
   rabbitmq:
     host: 192.168.99.100
-    port: 32769
+    port: 32773
     username: guest
     password: guest
 management:

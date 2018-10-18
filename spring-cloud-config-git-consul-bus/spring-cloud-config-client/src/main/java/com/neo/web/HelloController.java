@@ -15,4 +15,5 @@ class HelloController {
     public String from() {
         return this.hello;
     }
+
 }
